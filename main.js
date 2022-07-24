@@ -28,8 +28,6 @@ $("#save-user-page").on("click", function() {
 $("#load-user-page").on("click", function() {
     userList = JSON.parse(localStorage.userList || "[]")
     render.userListRender(userList)
-    console.log(userList)
-    console.log("HIII")
 
     $(".dropdown-content").change( function() {
         let user = {}
