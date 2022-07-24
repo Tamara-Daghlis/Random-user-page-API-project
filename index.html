@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>API Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="user-container"></div>
+        <div class="userList-container"></div>
+        <div class="quote-container"></div>
+        <div class="content-container">
+            <div class="pokemon-container"></div>
+            <div class="meat-container"></div>
+        </div>
+        <div class="friends">
+            <h4>Friends</h4>
+            <div class="friends-container">
+            </div>
+        </div>
+        <div class="buttons">
+            <button id="load-user-data">Load User Data</button>
+            <button id="diaplay-user">Display User</button>
+            <button id="save-user-page">Save User Page</button>
+            <button id="load-user-page">Load User Page</button>
+        </div>
+    </div>
+
+    <script id="mainUser-template" type="text/x-Handlebars-template">
+        <div id="user">
+          <div class="user-picture">
+            <img id="profile-pic" src="{{{picture}}}" alt="User Picture">
+           </div>
+           <div id="user-information" class="user-info">
+              <div >{{name}}</div>
+              <div> {{city}} - {{state}} </div>
+          </div>
+    </div>
+    </script>
+
+    <script id="friends-template" type="text/x-Handlebars-template">
+        {{#each friendsData}}
+            <div id="friends-name">{{name}}</div> 
+        {{/each}}
+    </script>
+
+    <script id="qoute-template" type="text/x-Handlebars-template">
+        <div>Favorite Qoute:</div>
+        <div>"{{qouteText}}"</div>
+        <div>- {{author}}</div>
+    </script>
+
+    <script id="pokemon-template" type="text/x-Handlebars-template">
+            <img id="pokemon-image" src="{{{picture}}}" alt="Pokemon Picture">
+            <div id="pokemon-text" > Favorite Pokemon: {{name}}</div>
+    </script>
+
+    <script id="aboutMeText-template" type="text/x-Handlebars-template">
+        <div>
+         <p > <h3>Aboute me:</h3>
+         {{#each paragraphs}}
+            <div class="meat-text"><p>{{aboutMeParagraph}}</p></div>
+         {{/each}}
+         </P>
+        </div>
+    </script>
+
+    <script id="loadUsers-template" type="text/x-Handlebars-template">
+        <div class="dropdown">
+            <label class="drop-label">Choose User To Load</label>
+            <select class="dropdown-content">
+                <option value="free">Free</option>
+               {{#each allUserList}}
+               <option value="{{mainUser.name}}">{{mainUser.name}}</option>
+               {{/each}}
+            </select>
+        </div>
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="APIManager.js"></script>
+    <script src="Renderer.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
